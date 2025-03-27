@@ -23,8 +23,9 @@ resource "aws_security_group" "ssh-security-group" {
   }
 
   tags = {
-    Name = "ssh Security group - ${var.environment-name}"
-    Owner = var.custom-name
-    Environment = "attackpaths"
+    Name           = "ssh Security group - ${var.environment-name}"
+    Owner          = var.custom-name
+    Environment    = "attackpaths"
+    ApplicationTag = "Attackpaths"
   }
 }

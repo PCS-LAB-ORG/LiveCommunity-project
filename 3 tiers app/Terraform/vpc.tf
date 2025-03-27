@@ -9,14 +9,18 @@ resource "aws_vpc" "vpc_01" {
   enable_dns_hostnames = true
 
   tags = {
-    Name = "${var.environment-name}-${var.custom-name}"
-    Owner = var.custom-name
-    Environment = "3tiersapp"
+    Name           = "${var.environment-name}-${var.custom-name}"
+    Owner          = var.custom-name
+    Environment    = "3tiersapp"
+    ApplicationTag = "3TiersApp"
   }
 }
 
 resource "aws_cloudwatch_log_group" "flowlog_loggroup" {
   name = "loggroup-${var.custom-name}-${var.environment-name}"
+  tags = {
+    ApplicationTag = ""
+  }
 }
 
 resource "aws_flow_log" "prisma_flow_log" {
@@ -24,14 +28,18 @@ resource "aws_flow_log" "prisma_flow_log" {
   log_destination_type = "s3"
   traffic_type         = "ALL"
   vpc_id               = aws_vpc.vpc_01.id
+  tags = {
+    ApplicationTag = ""
+  }
 }
 
 resource "aws_s3_bucket" "flowlog-s3" {
   bucket = "${var.custom-name}-flowlogs-${var.environment-name}"
 
   tags = {
-    Name        = "${var.custom-name}-flowlogs"
-    Environment = "3tiersapp"
+    Name           = "${var.custom-name}-flowlogs"
+    Environment    = "3tiersapp"
+    ApplicationTag = "3TiersApp"
   }
 }
 
