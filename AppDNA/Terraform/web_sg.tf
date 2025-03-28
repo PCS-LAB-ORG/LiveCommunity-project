@@ -37,8 +37,9 @@ resource "aws_security_group" "webserver-security-group" {
   }
 
   tags = {
-    Name = "Web server Security group-${var.environment-name}"
-    Owner = var.custom-name
-    Environment = "appdna"
+    Name           = "Web server Security group-${var.environment-name}"
+    Owner          = var.custom-name
+    Environment    = "appdna"
+    ApplicationTag = ""
   }
 }

@@ -11,9 +11,10 @@ resource "aws_route_table" "public-route-table" {
   }
 
   tags = {
-    Name = "Public Route Table - ${var.environment-name}"
-    Owner = var.custom-name
-    Environment = "attackpaths"
+    Name           = "Public Route Table - ${var.environment-name}"
+    Owner          = var.custom-name
+    Environment    = "attackpaths"
+    ApplicationTag = "Attackpaths"
   }
 }
 

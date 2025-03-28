@@ -10,9 +10,10 @@ resource "aws_lb" "application-load-balancer" {
   enable_deletion_protection = false
 
   tags = {
-    Name = "App load balancer - ${var.environment-name}"
-    Owner = var.custom-name
-    Environment = "attackpaths"
+    Name           = "App load balancer - ${var.environment-name}"
+    Owner          = var.custom-name
+    Environment    = "attackpaths"
+    ApplicationTag = "Attackpaths"
   }
 }
 
@@ -21,6 +22,9 @@ resource "aws_lb_target_group" "alb_target_group" {
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.vpc_01.id
+  tags = {
+    ApplicationTag = ""
+  }
 }
 
 resource "aws_lb_target_group_attachment" "web-attachment" {

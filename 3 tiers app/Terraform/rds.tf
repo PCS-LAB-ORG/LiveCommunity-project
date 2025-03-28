@@ -7,9 +7,10 @@ resource "aws_db_subnet_group" "database-subnet-group" {
   description = "Subnet group for database instance"
 
   tags = {
-    Name = "Database Subnets - ${var.environment-name}"
-    Owner = var.custom-name
-    Environment = "3tiersapp"
+    Name           = "Database Subnets - ${var.environment-name}"
+    Owner          = var.custom-name
+    Environment    = "3tiersapp"
+    ApplicationTag = "3TiersApp"
   }
 }
 #################################
@@ -29,4 +30,7 @@ resource "aws_db_instance" "database-instance" {
   db_subnet_group_name   = aws_db_subnet_group.database-subnet-group.name
   multi_az               = var.multi-az-deployment
   vpc_security_group_ids = [aws_security_group.database-security-group.id]
+  tags = {
+    ApplicationTag = ""
+  }
 }
