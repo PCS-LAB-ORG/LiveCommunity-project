@@ -12,7 +12,7 @@ resource "aws_subnet" "public-web-subnet-1" {
     Name           = "Public Subnet 1-${var.environment-name}"
     Owner          = var.custom-name
     Environment    = "3tiersapp"
-    ApplicationTag = "3TiersApp"
+    
   }
 }
 

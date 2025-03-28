@@ -12,7 +12,7 @@ resource "aws_vpc" "vpc_01" {
     Name           = "${var.environment-name}-${var.custom-name}"
     Owner          = var.custom-name
     Environment    = "3tiersapp"
-    ApplicationTag = "3TiersApp"
+    
   }
 }
 
@@ -39,7 +39,7 @@ resource "aws_s3_bucket" "flowlog-s3" {
   tags = {
     Name           = "${var.custom-name}-flowlogs"
     Environment    = "3tiersapp"
-    ApplicationTag = "3TiersApp"
+    
   }
 }
 

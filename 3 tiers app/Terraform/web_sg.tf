@@ -40,6 +40,6 @@ resource "aws_security_group" "webserver-security-group" {
     Name           = "Web server Security group-${var.environment-name}"
     Owner          = var.custom-name
     Environment    = "3tiersapp"
-    ApplicationTag = "3TiersApp"
+    
   }
 }

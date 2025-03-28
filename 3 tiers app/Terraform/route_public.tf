@@ -14,7 +14,7 @@ resource "aws_route_table" "public-route-table" {
     Name           = "Public Route Table - ${var.environment-name}"
     Owner          = var.custom-name
     Environment    = "3tiersapp"
-    ApplicationTag = "3TiersApp"
+    
   }
 }
 

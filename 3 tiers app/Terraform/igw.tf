@@ -9,6 +9,6 @@ resource "aws_internet_gateway" "igw" {
     Name           = "IGW-${var.environment-name}"
     Owner          = var.custom-name
     Environment    = "3tiersapp"
-    ApplicationTag = "3TiersApp"
+    
   }
 }

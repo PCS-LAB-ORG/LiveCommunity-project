@@ -10,7 +10,7 @@ resource "aws_db_subnet_group" "database-subnet-group" {
     Name           = "Database Subnets - ${var.environment-name}"
     Owner          = var.custom-name
     Environment    = "3tiersapp"
-    ApplicationTag = "3TiersApp"
+    
   }
 }
 #################################

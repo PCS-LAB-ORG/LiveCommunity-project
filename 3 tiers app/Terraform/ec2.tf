@@ -34,7 +34,7 @@ resource "aws_key_pair" "generated_key" {
   key_name   = "${var.custom-name}-lab2"
   public_key = tls_private_key.algorithm[0].public_key_openssh
   tags = {
-    ApplicationTag = ""
+  
   }
 }
 
@@ -59,7 +59,7 @@ resource "aws_instance" "PublicWebTemplate" {
     Name           = "web-instance-${var.custom-name}-${var.environment-name}"
     Owner          = var.custom-name
     Environment    = "3tiersapp"
-    ApplicationTag = "3TiersApp"
+    
   }
 }
 
@@ -97,7 +97,7 @@ resource "aws_instance" "private-app-template" {
     Name           = "app-instance-${var.custom-name} - ${var.environment-name}"
     Owner          = var.custom-name
     Environment    = "3tiersapp"
-    ApplicationTag = "3TiersApp"
+    
   }
 }
 

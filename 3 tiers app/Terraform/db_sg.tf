@@ -26,6 +26,6 @@ resource "aws_security_group" "database-security-group" {
     Name           = "Database Security group - ${var.environment-name}"
     Owner          = var.custom-name
     Environment    = "3tiersapp"
-    ApplicationTag = "3TiersApp"
+    
   }
 }

@@ -8,7 +8,7 @@ resource "aws_eip" "eip_nat" {
   tags = {
     Name           = "eip1 - ${var.environment-name} - ${var.custom-name}"
     Environment    = "3tiersapp"
-    ApplicationTag = "3TiersApp"
+    
   }
 }
 
@@ -20,6 +20,6 @@ resource "aws_nat_gateway" "nat_1" {
     "Name"         = "nat1 - ${var.environment-name}"
     Owner          = var.custom-name
     Environment    = "3tiersapp"
-    ApplicationTag = "3TiersApp"
+    
   }
 }

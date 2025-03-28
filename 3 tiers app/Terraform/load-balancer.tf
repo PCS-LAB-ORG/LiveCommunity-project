@@ -13,7 +13,7 @@ resource "aws_lb" "application-load-balancer" {
     Name           = "App load balancer - ${var.environment-name}"
     Owner          = var.custom-name
     Environment    = "3tiersapp"
-    ApplicationTag = "3TiersApp"
+    
   }
 }
 
